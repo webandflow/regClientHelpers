@@ -2,7 +2,7 @@
 /* 
 	regClientStartupScript.php
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-	This is a wrapper snippet for the $modx->regClientScript call and 
+	This is a wrapper snippet for the $modx->regClientStartupScript call and 
 	takes a single parameter - a path to the file
 
 */
@@ -12,7 +12,7 @@ $p = explode('.',$f);
 array_flip($p);
 
 if ($f && $p[0] = 'js') {
-	$modx->regClientScript($f);
+	$modx->regClientStartupScript($f);
 } else {
 	return false;
 }
