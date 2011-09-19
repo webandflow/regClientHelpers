@@ -8,10 +8,8 @@
 */
 
 $f = (isset($f)) ? $f : 0;
-$p = explode('.',$f);
-array_flip($p);
 
-if ($f && $p[0] = 'js') {
+if ($f) {
 	$modx->regClientStartupScript($f);
 } else {
 	return false;
