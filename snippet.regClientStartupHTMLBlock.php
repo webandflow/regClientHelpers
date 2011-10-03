@@ -18,7 +18,7 @@ if ($chunk = $modx->getChunk($html)) {
 	$html = $chunk;
 }
 
-if ($f) {
+if ($html) {
 	$modx->regClientStartupHTMLBlock($html);
 } else {
 	return false;
