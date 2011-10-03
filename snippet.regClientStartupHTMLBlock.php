@@ -13,12 +13,16 @@
 */
 
 $html = (isset($html)) ? $html : 0;
+$ignoreResources = isset($ignoreResources) ? $ignoreResources : 'false';
+if($ignoreResources) { 
+	$resourcesToIgnore = explode(',',$ignoreResources);
+}
 
 if ($chunk = $modx->getChunk($html)) {	
 	$html = $chunk;
 }
 
-if ($html) {
+if ($html && !(in_array($modx->resource->get('id'), $resourcesToIgnore))) {
 	$modx->regClientStartupHTMLBlock($html);
 } else {
 	return false;

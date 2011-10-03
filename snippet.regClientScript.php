@@ -8,8 +8,12 @@
 */
 
 $f = (isset($f)) ? $f : 0;
+$ignoreResources = isset($ignoreResources) ? $ignoreResources : 'false';
+if($ignoreResources) { 
+	$resourcesToIgnore = explode(',',$ignoreResources);
+}
 
-if ($f) {
+if ($f  && !(in_array($modx->resource->get('id'), $resourcesToIgnore))) {
 	$modx->regClientScript($f);
 } else {
 	return false;
