@@ -24,26 +24,26 @@
  */
 
 /**
- * This file provides snippet access to $modx->regClientCSS().
+ * This file provides snippet access to $modx->regClientStartupHTMLBlock().
  *
  * @author Desmond Smith <des@webandflowdesign.com>
  * @copyright Copyright (C) 2010-2011, Desmond Smith
  * @license http://opensource.org/licenses/gpl-3.0.php GNU Public License v2
- * @package xpdo
+ * @package regClientHelpers
  */
  
-
-$f = (isset($f)) ? $f : 0;
-
-/* takes a comma-separated list of resources to ignore */
+$html = (isset($html)) ? $html : 0;
 $ignoreResources = isset($ignoreResources) ? $ignoreResources : 'false';
 if($ignoreResources) { 
 	$resourcesToIgnore = explode(',',$ignoreResources);
 }
 
-/* if a file has been set and we are 
-if ($f && !(in_array($modx->resource->get('id'), $resourcesToIgnore))) {
-	$modx->regClientCSS($f);
+if ($chunk = $modx->getChunk($html)) {	
+	$html = $chunk;
+}
+
+if ($html && !(in_array($modx->resource->get('id'), $resourcesToIgnore))) {
+	$modx->regClientStartupHTMLBlock($html);
 } else {
 	return false;
 }
