@@ -1,5 +1,8 @@
 <?php
 /* 
+
+
+
 	regClientStartupScript.php
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 	This is a wrapper snippet for the $modx->regClientStartupScript call and 
